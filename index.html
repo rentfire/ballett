@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballettstudio Ost Frankfurt - Eleganz in Bewegung</title>
+    <meta name="description" content="Ballettstudio Ost Frankfurt - Wo Träume tanzen lernen. Klassischer Ballettunterricht nach Waganowa-Methode für alle Altersgruppen. Jetzt Schnupperstunde vereinbaren!">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #7d26cd;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #7D26CD;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7D26CD;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b35 0%, #ffa726 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.ballettstudio-ost.de/code/ballett-gala/img/ballett-gala-bikuz-2024102.webp') center/cover;
+            opacity: 0.25;
+            z-index: 1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #7d26cd;
+            color: white;
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8); 
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #7D26CD;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: #fafbfc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #7D26CD, #ff6b35);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: #7D26CD;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            background: url('https://www.ballettstudio-ost.de/img/miete/ballettstudio-ost_1024.webp') center/cover;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #ff6b35 0%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 4rem 0;
+            background: #fafbfc;
+        }
+
+        .location-content {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .transport-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .transport-item strong {
+            color: #7D26CD;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            Erreichbarkeit
+overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #ff6b35 0%, #ffa726 100%);
+            color: white;
+        }
+
+        .rating-showcase {
+            background: rgba(255, 255, 255, 1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stars {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .rating-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .rating-link:hover {
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #fafbfc;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #7D26CD;
+            color: white;
+        }
+
+        .contact-item:hover a {
+            color: white;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .contact-item:hover .contact-details strong {
+            color: white;
+        }
+
+        .contact-details a {
+            color: #7D26CD;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-form {
+            background: #fafbfc;
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #7D26CD;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Ballettstudio Ost</a>
+            <ul class="nav-menu">
+                <li><a href="#features">Unser Angebot</a></li>
+                <li><a href="#about">Das Studio</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element">🩰</div>
+            <div class="floating-element">✨</div>
+            <div class="floating-element">🎭</div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text"><br><br>
+                <h1>Wo Träume tanzen lernen</h1>
+                <p class="hero-subtitle">Eleganz • Anmut • Perfektion</p>
+                <p class="hero-description">
+                    Entdecke die Welt des klassischen Balletts in unserem Studio im Herzen Frankfurts. 
+                    Hier verwandeln wir Leidenschaft in Kunst und begleiten dich auf deiner tänzerischen Reise 
+                    - von den ersten zarten Schritten bis zur vollendeten Darbietung.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Jetzt Probestunde buchen</a>
+                    <a href="tel:00496929721499" class="btn btn-outline">📞 Direkt anrufen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Was macht uns besonders?</h2>
+                <p class="section-subtitle">
+                    Entdecke, warum unser Studio der perfekte Ort für deine Ballettausbildung ist
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-bullseye"></i></span>
+                    <h3>Waganowa-Methode</h3>
+                    <p>Lerne Ballett nach der weltberühmten russischen Technik, die Generationen von Weltklasse-Tänzern geformt hat. Präzision und Eleganz stehen im Mittelpunkt unserer Ausbildung.</p>
+                    <a href="https://www.ballettstudio-ost.de/ballettkurse-frankfurt.php" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" target="_blank" rel="noopener noreferrer">Kurse entdecken</a>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-person-badge"></i></span>
+                    <h3>Professionelle Betreuung</h3>
+                    <p>Unter der Führung von Frau Olga und unserem professionellen Lehrerteam entwickelst du dein tänzerisches Potenzial in einer Atmosphäre voller Wärme und Expertise.</p>
+                    <a href="https://www.ballettstudio-ost.de/kursleiter-ballettschule-frankfurt.php" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Team kennenlernen</a>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-train-front"></i></span>
+                    <h3>Gute Erreichbarkeit</h3>
+                    <p>Unser Studio am lebendigen Osthafenplatz ist optimal an das Frankfurter Verkehrsnetz angebunden - dein Weg zur Tanzstunde wird zum entspannten Vorspiel.</p>
+                    <a href="#location" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Anfahrt planen</a>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-star-fill"></i></span>
+                    <h3>Für jedes Alter</h3>
+                    <p>Ob neugierige Vierjährige oder erwachsene Tanzbegeisterte - in unseren liebevoll konzipierten Kursen findet jeder seinen Rhythmus und seine Freude am Tanz.</p>
+                    <a href="https://www.ballettstudio-ost.de/ballettkurse-frankfurt.php" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Kurse ansehen</a>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-easel2"></i></span>
+                    <h3>Magische Auftritte</h3>
+                    <p>Erlebe unvergessliche Momente, wenn unsere Schüler ihr Können in bezaubernden Aufführungen präsentieren und ihre Träume auf der Bühne zum Leben erwecken.</p>
+                    <a href="https://www.ballettstudio-ost.de/ballettschule-frankfurt-ostend.php#Ballett-gala2024" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Aufführungen sehen</a>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon"><i class="bi bi-gift"></i></span>
+                    <h3>Unverbindlicher Einstieg</h3>
+                    <p>Für junge Tänzer bis 14 Jahre öffnen wir unsere Türen zu einer kostenlosen Probestunde - der erste Schritt in eine Welt voller Anmut und Bewegung.</p>
+                    <a href="tel:00496929721499" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Jetzt anrufen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Unser Zuhause für den Tanz</h2>
+                    <p>Seit 2019 bietet das Ballettstudio Ost im Frankfurter Ostend professionellen Ballettunterricht. Direkt am Osthafenplatz gelegen, ist unser Studio ein Ort, an dem Kinder, Jugendliche und Erwachsene ihre Leidenschaft für Tanz entdecken und weiterentwickeln können.</p>
+                    
+                    <p>In unserem Studio verschmelzen Tradition und Innovation zu einer einzigartigen Lernerfahrung. Die bewährte Waganowa-Methode bildet das Fundament unserer Arbeit, während moderne Unterrichtsansätze jeden Schüler individuell fördern und begeistern.</p>
+                    
+                    <p>Ob du deine ersten Tanzschritte wagst oder bereits Erfahrung mitbringst - in unserem Studio findest du eine Gemeinschaft, die dich unterstützt, inspiriert und auf deinem ganz persönlichen Weg zur tänzerischen Vollendung begleitet.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 1rem;">Probestunde buchen</a>
+                        <a href="https://www.ballettstudio-ost.de/" target="_blank" class="btn" style="margin-bottom: 1rem; background: #fafbfc; color: #7D26CD; border: 2px solid #7D26CD;">Mehr über uns erfahren</a>
+                    </div>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="location-content">
+                <h2 class="section-title">Mitten im Leben, mitten in Frankfurt</h2>
+                <p class="section-subtitle">Am charmanten Osthafenplatz gelegen, erreichst du uns mühelos:</p>
+            </div>
+            
+            <div class="location-grid">
+                <div class="transport-item">
+                    <strong>Straßenbahn Linie 11</strong>
+                    Haltestelle Osthafenplatz - direkt vor unserer Tür
+                </div>
+                <div class="transport-item">
+                    <strong>U-Bahn U6</strong>
+                    bis Ostbahnhof, nur 7 Gehminuten entfernt
+                </div>
+                <div class="transport-item">
+                    <strong>Bus 31</strong>
+                    bis Ostbahnhof/Honsellstraße, 5 Minuten zu Fuß
+                </div>
+                <div class="transport-item">
+                    <strong>Bus 32</strong>
+                    verschiedene Haltestellen, 9 Minuten Spaziergang
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.6627660188283!2d8.710856076704257!3d50.11131887152945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0fedae7ed375%3A0xb2d79e105704851c!2sBallettstudio%20Ost%2C%20Ballettschule%20Frankfurt!5e0!3m2!1sde!2suk!4v1756295476358!5m2!1sde!2suk" 
+                    style="width:100%; height:350px; border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Was unsere Schüler und Eltern sagen</h2>
+            </div>
+<div class="rating-showcase">
+<h3 style="color: black;">Juan Carlos R.</h3>
+<p style="color: black;"><i>Das Ballettstudio Ost, Ballettschule Frankfurt, ist einfach hervorragend!
+"Die Lehrerin strahlt ein beeindruckendes Maß an Professionalität aus. Ihre fachkundige Anleitung und ihre Hingabe zur Kunst des Balletts sind wirklich inspirierend. Ich schätze die freundliche Atmosphäre und die hochwertige Ausbildung, die diese Ballettschule bietet. Sehr empfehlenswert für alle, die nach einer erstklassigen Tanzschule suchen!" 
+</i></p><a href="https://www.google.com/maps/reviews/@50.1113189,8.713431,17z/data=!3m1!4b1!4m6!14m5!1m4!2m3!1sChdDSUhNMG9nS0VJQ0FnSURGdTktY2hnRRAB!2m1!1s0x0:0xb2d79e105704851c?hl=de&entry=ttu"  target="_blank" rel="noopener noreferrer" class="rating-link" style="color: black;">Zur Bewertung</a></div><br><br>
+            
+            <div class="rating-showcase" style="color: black;">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="rating-text">Ausgezeichnet bewertet</div>
+                <p style="margin-bottom: 1rem; opacity: 0.9;">5.0 von 5 Sternen bei Google</p>
+                <a href="https://maps.app.goo.gl/1CH7AYbDXkGAxZYy8" target="_blank" rel="noopener noreferrer" class="rating-link" style="color: black;">
+                    Über 82 begeisterte Bewertungen lesen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Lass uns ins Gespräch kommen</h2>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div class="contact-details">
+                            <strong>Unser Studio</strong>
+                            Hanauer Landstraße 138<br>
+                            60314 Frankfurt am Main
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div class="contact-details">
+                            <strong>Ruf uns an</strong>
+                            <a href="tel:00496929721499">069-29721499</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div class="contact-details">
+                            <strong>Schreib uns</strong>
+                            <a href="mailto:info@ballettstudio-ost.de">info@ballettstudio-ost.de</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <div class="contact-details">
+                            <strong>Besuch uns online</strong>
+                            <a href="https://www.ballettstudio-ost.de/" target="_blank" rel="noopener noreferrer">
+                                www.ballettstudio-ost.de
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact
