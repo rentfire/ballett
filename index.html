@@ -294,13 +294,41 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-size: clamp(3.2rem, 8vw, 4.5rem);
             font-weight: 700;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
             animation: fadeInUp 1s ease-out;
+        }
+
+        /* Animierte Tanzen-Animation */
+        .dancing-word {
+            display: inline-block;
+            animation: dance-text 3s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
+
+        @keyframes dance-text {
+            0% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            20% { 
+                transform: translateY(-8px) rotate(-2deg) scale(1.05);
+            }
+            40% { 
+                transform: translateY(0px) rotate(1deg) scale(1.02);
+            }
+            60% { 
+                transform: translateY(-5px) rotate(-1deg) scale(1.03);
+            }
+            80% { 
+                transform: translateY(0px) rotate(0.5deg) scale(1.01);
+            }
+            100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
         }
 
         @keyframes fadeInUp {
@@ -315,20 +343,20 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: 2rem;
             font-weight: 300;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero-description {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 3rem;
             line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
@@ -826,7 +854,7 @@
         
         <div class="hero-content">
             <div class="hero-text"><br><br><br>
-                <h1>Wo Träume tanzen lernen</h1>
+                <h1>Wo Träume <span class="dancing-word">tanzen</span> lernen</h1>
                 <p class="hero-subtitle">Eleganz • Anmut • Perfektion</p>
                 <p class="hero-description">
                     Entdecke die Welt des klassischen Balletts in unserem Studio im Herzen Frankfurts. 
@@ -1059,7 +1087,7 @@
                     <h2>Lass uns ins Gespräch kommen</h2>
                     
                     <div class="contact-item">
-                        <span class="contact-icon"><i class="bi bi-geo-alt"></i></span>
+                        <span class="contact-icon">📍</span>
                         <div class="contact-details">
                             <strong>Unser Studio</strong>
                             Hanauer Landstraße 138<br>
@@ -1068,7 +1096,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon"><i class="bi bi-telephone"></i></span>
+                        <span class="contact-icon">📞</span>
                         <div class="contact-details">
                             <strong>Ruf uns an</strong>
                             <a href="tel:00496929721499">069-29721499</a>
@@ -1076,7 +1104,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon"><i class="bi bi-envelope"></i></span>
+                        <span class="contact-icon">✉️</span>
                         <div class="contact-details">
                             <strong>Schreib uns</strong>
                             <a href="mailto:info@ballettstudio-ost.de">info@ballettstudio-ost.de</a>
@@ -1084,7 +1112,7 @@
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon"><i class="bi bi-globe"></i></span>
+                        <span class="contact-icon">🌐</span>
                         <div class="contact-details">
                             <strong>Besuch uns online</strong>
                             <a href="https://www.ballettstudio-ost.de/" target="_blank" rel="noopener noreferrer">
@@ -1092,20 +1120,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="contact-item">
-                        <span class="contact-icon"><i class="bi bi-link-45deg"></i></span>
-                        <div class="contact-details">
-                            <strong>Weitere Seiten von uns</strong>
-            <a href="https://ballett-frankfurt.ballettstost.workers.dev/">cloudflare</a><br>  
-            <a href="https://ballettstost.web.app/" >web.app</a> <br> 
-            <a href="https://ballettschule-frankfurt.ct.ws/" >infinityFree</a>   <br> 
-            <a href="https://ballettstost.codeberg.page/ballettschule-frankfurt/" >codeberg.page</a>  <br>
-            <a href="https://ballettstost.neocities.org/" >neocities.org</a>  <br> 
-            <a href="https://nav.zimmer-rohde.com/Cronus/WebClient/1.html/" >Zimmer</a>
-                        </div>
-                    </div>
-
                 </div>
                 
                 <div class="contact-form">
