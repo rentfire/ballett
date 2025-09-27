@@ -289,7 +289,7 @@
         }
 
         .hero-text {
-            max-width: 650px;
+            max-width: 750px;
         }
 
         .hero h1 {
@@ -998,7 +998,7 @@
             });
         });
 
-        // Contact Form Handler
+        // Contact Form Handler - Alternative approach
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
@@ -1006,24 +1006,54 @@
                 
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
+                const phone = document.getElementById('phone').value || 'Nicht angegeben';
                 const message = document.getElementById('message').value;
                 
-                // Create email body
-                const subject = encodeURIComponent('Kontaktanfrage von ' + name);
-                const body = encodeURIComponent(
-                    'Name: ' + name + '\n' +
-                    'E-Mail: ' + email + '\n' +
-                    (phone ? 'Telefon: ' + phone + '\n' : '') +
-                    '\nNachricht:\n' + message
-                );
+                // Validate required fields
+                if (!name || !email || !message) {
+                    alert('Bitte fülle alle Pflichtfelder aus.');
+                    return;
+                }
                 
-                // Open email client
-                window.location.href = 'mailto:info@ballettstudio-ost.de?subject=' + subject + '&body=' + body;
+                // Create pre-filled email link
+                const subject = 'Kontaktanfrage von ' + name;
+                const emailBody = `Hallo liebes Ballettstudio-Team,
+
+hiermit möchte ich Kontakt aufnehmen:
+
+Name: ${name}
+E-Mail: ${email}  
+Telefon: ${phone}
+
+Meine Nachricht:
+${message}
+
+Vielen Dank und beste Grüße,
+${name}`;
                 
-                // Show confirmation and reset form
-                alert('Dein E-Mail-Programm wird geöffnet. Vielen Dank für deine Nachricht!');
-                this.reset();
+                // Use different approach for better compatibility
+                const mailtoLink = `mailto:info@ballettstudio-ost.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Try to open email client
+                try {
+                    window.location.href = mailtoLink;
+                    
+                    // Show success message after short delay
+                    setTimeout(() => {
+                        alert('Vielen Dank! Dein E-Mail-Programm sollte sich öffnen. Falls nicht, sende bitte eine E-Mail direkt an: info@ballettstudio-ost.de');
+                        this.reset();
+                    }, 500);
+                } catch (error) {
+                    // Fallback: Show email address and copy info
+                    alert('E-Mail-Client konnte nicht geöffnet werden. Bitte sende deine Nachricht direkt an: info@ballettstudio-ost.de');
+                    
+                    // Try to copy email to clipboard as fallback
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText('info@ballettstudio-ost.de').then(() => {
+                            console.log('E-Mail-Adresse in Zwischenablage kopiert');
+                        });
+                    }
+                }
             });
         }
     </script>
