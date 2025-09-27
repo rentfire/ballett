@@ -581,17 +581,20 @@
 
         /* Testimonials Section */
         .testimonials {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #ff6b35 0%, #ffa726 100%);
-            color: white;
-        }
+  padding: 6rem 0;
+  background-color: #7d26cd;
+  background-image: linear-gradient(135deg, #5a189a 0%, #7d26cd 30%, #9c4edc 70%, #c77dff 100%);
+  color: white;
+}
+
+
 
         .rating-showcase {
             background: rgba(255, 255, 255, 1);
             backdrop-filter: blur(20px);
             padding: 3rem;
             border-radius: 20px;
-            text-align: center;
+            text-align: left;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -811,6 +814,13 @@
             z-index: 2;
             pointer-events: none;
         }
+.studio-image {
+  width: 100%;              
+  height: auto;            
+  border-radius: 15px;      
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+  display: block;           
+}
     </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
@@ -842,12 +852,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="floating-elements">
-            <div class="floating-element">🩰</div>
-            <div class="floating-element">✨</div>
-            <div class="floating-element">🎭</div>
-            <div class="floating-element">💫</div>
-            <div class="floating-element">🌟</div>
-            <div class="floating-element">🎪</div>
+            <div class="floating-element"><i class="bi bi-music-note"></i></div>
+            <div class="floating-element"><i class="bi bi-star"></i></div>
+            <div class="floating-element"><i class="bi bi-heart"></i></div>
+            <div class="floating-element"><i class="bi bi-gem"></i></div>
+            <div class="floating-element"><i class="bi bi-sparkles"></i></div>
+            <div class="floating-element"><i class="bi bi-circle"></i></div>
         </div>
         
         <div class="sparkles-container" id="sparkles"></div>
@@ -857,7 +867,7 @@
                 <h1>Wo Träume <span class="dancing-word">tanzen</span> lernen</h1>
                 <p class="hero-subtitle">Eleganz • Anmut • Perfektion</p>
                 <p class="hero-description">
-                    Entdecke die Welt des klassischen Balletts. 
+                    Entdecke die Welt des klassischen Balletts in unserem Studio im Herzen Frankfurts. 
                     Hier verwandeln wir Leidenschaft in Kunst und begleiten dich auf deiner tänzerischen Reise 
                     - von den ersten zarten Schritten bis zur vollendeten Darbietung.
                 </p>
@@ -882,7 +892,7 @@
                 <div class="feature-card">
                     <span class="feature-icon"><i class="bi bi-bullseye"></i></span>
                     <h3>Waganowa-Methode</h3>
-                    <p>Lerne Ballett nach der weltberühmten russischen Technik, die Generationen von Weltklasse-Tänzern geformt hat. Präzision und Eleganz stehen im Mittelpunkt unserer Ausbildung.</p>
+                    <p>Lerne Ballett nach der weltberühmten russischen Technik, die Generationen von Weltklasse-Tänzern geformt hat. Präzision und Eleganz stehen im Mittelpunkt unserer Ausbildung.</p><br>
                     <a href="https://www.ballettstudio-ost.de/ballettkurse-frankfurt.php" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;" target="_blank" rel="noopener noreferrer">Kurse entdecken</a>
                 </div>
                 
@@ -896,7 +906,7 @@
                 <div class="feature-card">
                     <span class="feature-icon"><i class="bi bi-train-front"></i></span>
                     <h3>Gute Erreichbarkeit</h3>
-                    <p>Unser Studio am lebendigen Osthafenplatz ist optimal an das Frankfurter Verkehrsnetz angebunden - dein Weg zur Tanzstunde wird zum entspannten Vorspiel.</p>
+                    <p>Unser Studio am  Osthafenplatz ist optimal an das Frankfurter Verkehrsnetz angebunden - dein Weg zur Tanzstunde wird zum entspannten Vorspiel.</p><br><br>
                     <a href="#location" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Anfahrt planen</a>
                 </div>
                 
@@ -910,14 +920,14 @@
                 <div class="feature-card">
                     <span class="feature-icon"><i class="bi bi-easel2"></i></span>
                     <h3>Magische Auftritte</h3>
-                    <p>Erlebe unvergessliche Momente, wenn unsere Schüler ihr Können in bezaubernden Aufführungen präsentieren und ihre Träume auf der Bühne zum Leben erwecken.</p>
+                    <p>Erlebe unvergessliche Momente, wenn unsere Schüler ihr Können in bezaubernden Aufführungen präsentieren und ihre Träume auf der Bühne zum Leben erwecken.</p><br>
                     <a href="https://www.ballettstudio-ost.de/ballettschule-frankfurt-ostend.php#Ballett-gala2024" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Aufführungen sehen</a>
                 </div>
                 
                 <div class="feature-card">
                     <span class="feature-icon"><i class="bi bi-gift"></i></span>
                     <h3>Unverbindlicher Einstieg</h3>
-                    <p>Für junge Tänzer bis 14 Jahre öffnen wir unsere Türen zu einer kostenlosen Probestunde - der erste Schritt in eine Welt voller Anmut und Bewegung.</p>
+                    <p>Für junge Tänzer bis 14 Jahre öffnen wir unsere Türen zu einer kostenlosen Probestunde - der erste Schritt in eine Welt voller Anmut und Bewegung.</p><br>
                     <a href="tel:00496929721499" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: 0.7rem 1.5rem; font-size: 0.9rem;">Jetzt anrufen</a>
                 </div>
             </div>
@@ -998,64 +1008,8 @@
             });
         });
 
-        // Contact Form Handler - Alternative approach
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value || 'Nicht angegeben';
-                const message = document.getElementById('message').value;
-                
-                // Validate required fields
-                if (!name || !email || !message) {
-                    alert('Bitte fülle alle Pflichtfelder aus.');
-                    return;
-                }
-                
-                // Create pre-filled email link
-                const subject = 'Kontaktanfrage von ' + name;
-                const emailBody = `Hallo liebes Ballettstudio-Team,
-
-hiermit möchte ich Kontakt aufnehmen:
-
-Name: ${name}
-E-Mail: ${email}  
-Telefon: ${phone}
-
-Meine Nachricht:
-${message}
-
-Vielen Dank und beste Grüße,
-${name}`;
-                
-                // Use different approach for better compatibility
-                const mailtoLink = `mailto:info@ballettstudio-ost.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-                
-                // Try to open email client
-                try {
-                    window.location.href = mailtoLink;
-                    
-                    // Show success message after short delay
-                    setTimeout(() => {
-                        alert('Vielen Dank! Dein E-Mail-Programm sollte sich öffnen. Falls nicht, sende bitte eine E-Mail direkt an: info@ballettstudio-ost.de');
-                        this.reset();
-                    }, 500);
-                } catch (error) {
-                    // Fallback: Show email address and copy info
-                    alert('E-Mail-Client konnte nicht geöffnet werden. Bitte sende deine Nachricht direkt an: info@ballettstudio-ost.de');
-                    
-                    // Try to copy email to clipboard as fallback
-                    if (navigator.clipboard) {
-                        navigator.clipboard.writeText('info@ballettstudio-ost.de').then(() => {
-                            console.log('E-Mail-Adresse in Zwischenablage kopiert');
-                        });
-                    }
-                }
-            });
-        }
+        // Contact Form Handler - Simple mailto approach
+        // Form removed - using direct contact buttons instead
     </script>
 
     <!-- About Section -->
@@ -1085,7 +1039,7 @@ ${name}`;
         <div class="container">
             <div class="location-content">
                 <h2 class="section-title">Mitten im Leben, mitten in Frankfurt</h2>
-                <p class="section-subtitle">Am charmanten Osthafenplatz gelegen, erreichst du uns mühelos:</p>
+                <p class="section-subtitle">Direkt am Osthafenplatz gelegen, erreichst du uns mühelos:</p>
             </div>
             
             <div class="location-grid">
@@ -1143,6 +1097,7 @@ ${name}`;
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-grid">
@@ -1150,7 +1105,7 @@ ${name}`;
                     <h2>Lass uns ins Gespräch kommen</h2>
                     
                     <div class="contact-item">
-                        <span class="contact-icon">📍</span>
+                        <span class="contact-icon"><i class="bi bi-geo-alt"></i></span>
                         <div class="contact-details">
                             <strong>Unser Studio</strong>
                             Hanauer Landstraße 138<br>
@@ -1159,7 +1114,7 @@ ${name}`;
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon">📞</span>
+                        <span class="contact-icon"><i class="bi bi-telephone"></i></span>
                         <div class="contact-details">
                             <strong>Ruf uns an</strong>
                             <a href="tel:00496929721499">069-29721499</a>
@@ -1167,7 +1122,7 @@ ${name}`;
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon">✉️</span>
+                        <span class="contact-icon"><i class="bi bi-envelope"></i></span>
                         <div class="contact-details">
                             <strong>Schreib uns</strong>
                             <a href="mailto:info@ballettstudio-ost.de">info@ballettstudio-ost.de</a>
@@ -1175,7 +1130,7 @@ ${name}`;
                     </div>
                     
                     <div class="contact-item">
-                        <span class="contact-icon">🌐</span>
+                        <span class="contact-icon"><i class="bi bi-globe"></i></span>
                         <div class="contact-details">
                             <strong>Besuch uns online</strong>
                             <a href="https://www.ballettstudio-ost.de/" target="_blank" rel="noopener noreferrer">
@@ -1183,25 +1138,47 @@ ${name}`;
                             </a>
                         </div>
                     </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon"><i class="bi bi-link-45deg"></i></span>
+                        <div class="contact-details">
+                            <strong>Weitere Seiten von uns</strong>
+            <a href="https://ballett-frankfurt.ballettstost.workers.dev/">cloudflare</a><br>  
+            <a href="https://ballettstost.web.app/" >web.app</a> <br> 
+            <a href="https://ballettschule-frankfurt.ct.ws/" >infinityFree</a>   <br> 
+            <a href="https://ballettstost.codeberg.page/ballettschule-frankfurt/" >codeberg.page</a>  <br>
+            <a href="https://ballettstost.neocities.org/" >neocities.org</a>  <br> 
+            <a href="https://nav.zimmer-rohde.com/Cronus/WebClient/1.html/" >Zimmer</a>
+                        </div>
+                    </div>
+
                 </div>
+
                 
                 <div class="contact-form">
-                    <h3>Schreib uns eine Nachricht</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Dein Name" required>
+<br><br><br>
+
+                           <div style="background: #f8f9fa; padding: ´0.5rem; border-radius: 15px; margin-top: 1rem;">
+                                <img src="https://kinderballett-frankfurt.de/wp-content/uploads/2022/07/eingang-ballettstudio-ost.jpg" 
+     				alt="Eingang Ballettstudio Ost" class="studio-image"><br><br>
+
+                    <div style="text-align: center; padding: 2rem;">
+
+                        
+                        <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                            <a href="mailto:info@ballettstudio-ost.de" class="btn btn-primary" style="text-decoration: none; display: block;">
+                                E-Mail schreiben
+                            </a>
+                         
+                            <a href="tel:00496929721499" class="btn" style="background: #fafbfc; color: #7D26CD; border: 2px solid #7D26CD; text-decoration: none; display: block;">
+                                Direkt anrufen
+                            </a>
+                     
+
+
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Deine E-Mail" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Telefonnummer (optional)">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Deine Nachricht - erzähl uns von deinen Tanzträumen!" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
