@@ -294,7 +294,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3.2rem, 8vw, 4.5rem);
+            font-size: clamp(3.8rem, 10vw, 5.5rem);
             font-weight: 700;
             color: white;
             margin-bottom: 1.5rem;
@@ -343,7 +343,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.3rem, 4vw, 1.6rem);
+            font-size: clamp(1.6rem, 5vw, 2rem);
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: 2rem;
             font-weight: 300;
@@ -352,7 +352,7 @@
         }
 
         .hero-description {
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: 3rem;
             line-height: 1.6;
@@ -939,24 +939,28 @@
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
             });
-        });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
 
         // Create dynamic sparkles
         function createSparkle() {
             const sparklesContainer = document.getElementById('sparkles');
+            if (!sparklesContainer) return;
+            
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
             
@@ -993,6 +997,35 @@
                 }
             });
         });
+
+        // Contact Form Handler
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+                
+                // Create email body
+                const subject = encodeURIComponent('Kontaktanfrage von ' + name);
+                const body = encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'E-Mail: ' + email + '\n' +
+                    (phone ? 'Telefon: ' + phone + '\n' : '') +
+                    '\nNachricht:\n' + message
+                );
+                
+                // Open email client
+                window.location.href = 'mailto:info@ballettstudio-ost.de?subject=' + subject + '&body=' + body;
+                
+                // Show confirmation and reset form
+                alert('Dein E-Mail-Programm wird geöffnet. Vielen Dank für deine Nachricht!');
+                this.reset();
+            });
+        }
     </script>
 
     <!-- About Section -->
@@ -1124,18 +1157,18 @@
                 
                 <div class="contact-form">
                     <h3>Schreib uns eine Nachricht</h3>
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Dein Name" required>
+                            <input type="text" id="name" name="name" placeholder="Dein Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Deine E-Mail" required>
+                            <input type="email" id="email" name="email" placeholder="Deine E-Mail" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Telefonnummer (optional)">
+                            <input type="tel" id="phone" name="phone" placeholder="Telefonnummer (optional)">
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Deine Nachricht - erzähl uns von deinen Tanzträumen!" required></textarea>
+                            <textarea id="message" name="message" placeholder="Deine Nachricht - erzähl uns von deinen Tanzträumen!" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
                     </form>
